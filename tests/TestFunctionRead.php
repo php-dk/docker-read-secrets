@@ -3,7 +3,7 @@
 use phpdk\dockerReadSecrets\Reader;
 use phpdk\dockerReadSecrets\Secret;
 
-class TestRead extends \PHPUnit\Framework\TestCase
+class TestFunctionRead extends \PHPUnit\Framework\TestCase
 {
     const SECRETS_DIR = __DIR__ . '/secrets';
     const PASS_SECRET_NAME = 'db_password';
