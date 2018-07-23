@@ -1,5 +1,6 @@
 {
-    "name": "phpdk/docker-read-secters",
+    "name": "phpdk/docker-read-secrets",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "dimajolkin",
