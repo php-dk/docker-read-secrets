@@ -4,6 +4,8 @@ namespace phpdk\dockerReadSecrets;
 
 class Reader
 {
+    const DEFAULT_DIR = '/run/secret';
+
     /** @var string */
     protected $dir;
 
@@ -11,7 +13,7 @@ class Reader
      * Reader constructor.
      * @param string $dir
      */
-    public function __construct(string $dir)
+    public function __construct(string $dir = self::DEFAULT_DIR)
     {
         $this->dir = $dir;
     }
@@ -20,7 +22,7 @@ class Reader
      * @param string $dir
      * @return static
      */
-    public static function new(string $dir)
+    public static function new(string $dir = self::DEFAULT_DIR)
     {
         return new static($dir);
     }

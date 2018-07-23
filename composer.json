@@ -7,8 +7,11 @@
             "email": "dimajolkin@rambler.ru"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^7.0"
+    },
     "autoload": {
+        "files": ["src/functions_include.php"],
         "psr-4": {
             "phpdk\\dockerReadSecrets\\": "src"
         }

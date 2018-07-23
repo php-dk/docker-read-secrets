@@ -3,16 +3,11 @@
 use phpdk\dockerReadSecrets\Reader;
 use phpdk\dockerReadSecrets\Secret;
 
-/**
- * Created by PhpStorm.
- * User: dima
- * Date: 23.07.18
- * Time: 10:29
- */
-
 class TestRead extends \PHPUnit\Framework\TestCase
 {
     const SECRETS_DIR = __DIR__ . '/secrets';
+    const PASS_SECRET_NAME = 'db_password';
+    const PASS_SECRET_VALUE = 'my_password';
 
     protected function getReader(): Reader
     {
@@ -22,11 +17,11 @@ class TestRead extends \PHPUnit\Framework\TestCase
     public function testReadPassword()
     {
         $reader = $this->getReader();
-        $secret = $reader->get('db_password');
+        $secret = $reader->get(self::PASS_SECRET_NAME);
 
         static::assertInstanceOf(Secret::class, $secret);
-        static::assertEquals('db_password', $secret->getName());
-        static::assertEquals('my_password', $secret->getValue());
+        static::assertEquals(self::PASS_SECRET_NAME, $secret->getName());
+        static::assertEquals(self::PASS_SECRET_VALUE, $secret->getValue());
     }
 
     public function testReadDefaultValue()
@@ -47,14 +42,14 @@ class TestRead extends \PHPUnit\Framework\TestCase
 
     public function testReadScalar()
     {
-        $value = $this->getReader()->getScalar('db_password', '');
-        static::assertEquals('my_password', $value);
+        $value = $this->getReader()->getScalar(self::PASS_SECRET_NAME, '');
+        static::assertEquals(self::PASS_SECRET_VALUE, $value);
     }
 
     public function testCreateSecretByFileName()
     {
-        $secret = Secret::createByFile(self::SECRETS_DIR . '/' . 'db_password');
-        static::assertEquals('db_password', $secret->getName());
-        static::assertEquals('my_password', $secret->getValue());
+        $secret = Secret::createByFile(self::SECRETS_DIR . '/' . self::PASS_SECRET_NAME);
+        static::assertEquals(self::PASS_SECRET_NAME, $secret->getName());
+        static::assertEquals(self::PASS_SECRET_VALUE, $secret->getValue());
     }
 }
