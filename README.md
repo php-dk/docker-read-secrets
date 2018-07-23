@@ -1,6 +1,7 @@
 # Docker secret reader
 
-composer require phpdk/docker-read-secters
+
+composer require phpdk/docker-read-secrets
 
 ```php
 $pass = Reader::new(self::SECRETS_DIR)->get('db_pass')->getValue();
