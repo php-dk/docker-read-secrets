@@ -1,5 +1,4 @@
 <?php
-
 use phpdk\dockerReadSecrets\Reader;
 
 function pdk_secret_read(string $name, $defValue = null, string $dir = Reader::DEFAULT_DIR)
