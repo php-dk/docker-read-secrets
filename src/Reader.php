@@ -4,7 +4,7 @@ namespace phpdk\dockerReadSecrets;
 
 class Reader
 {
-    const DEFAULT_DIR = '/run/secret';
+    const DEFAULT_DIR = '/run/secrets';
 
     /** @var string */
     protected $dir;
